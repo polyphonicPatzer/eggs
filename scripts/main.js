@@ -1,20 +1,3 @@
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-'use strict';
-
 // Initializes FriendlyChat.
 function FriendlyChat() {
   this.checkSetup();
@@ -51,6 +34,23 @@ function FriendlyChat() {
 
   this.initFirebase();
 }
+
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+'use strict';
 
 // Sets up shortcuts to Firebase features and initiate firebase auth.
 FriendlyChat.prototype.initFirebase = function() {
@@ -153,6 +153,7 @@ FriendlyChat.prototype.saveImageMessage = function(event) {
     });
   }
 };
+/*
 
 // Signs-in Friendly Chat.
 FriendlyChat.prototype.signIn = function() {
@@ -166,6 +167,7 @@ FriendlyChat.prototype.signOut = function() {
   // Sign out of Firebase.
   this.auth.signOut();
 };
+*/
 
 // Triggers when the auth state change for instance when the user signs-in or signs-out.
 FriendlyChat.prototype.onAuthStateChanged = function(user) {
@@ -202,6 +204,7 @@ FriendlyChat.prototype.onAuthStateChanged = function(user) {
   }
 };
 
+/*
 // Returns true if user is signed-in. Otherwise false and displays a message.
 FriendlyChat.prototype.checkSignedInWithMessage = function() {
   // Return true if the user is signed in Firebase
@@ -217,6 +220,7 @@ FriendlyChat.prototype.checkSignedInWithMessage = function() {
   this.signInSnackbar.MaterialSnackbar.showSnackbar(data);
   return false;
 };
+*/
 
 // Saves the messaging device token to the datastore.
 FriendlyChat.prototype.saveMessagingDeviceToken = function() {
@@ -326,3 +330,21 @@ FriendlyChat.prototype.checkSetup = function() {
 window.onload = function() {
   window.friendlyChat = new FriendlyChat();
 };
+
+var wEggImage = document.getElementById("wEggImage");
+var bEggImage = document.getElementById("bEggImage");
+var c1 = document.getElementById("counter1");
+
+wEggImage.onclick = function() {chickClick(wEggImage, "images/lYellow_chick.png");}
+bEggImage.onclick = function() {chickClick(bEggImage, "images/dark_chick.png");}
+
+function chickClick(chick, pic){
+  var num = c1.innerHTML;
+  num++;
+  if (num <= 15){c1.innerHTML = num;}
+  else {
+    c1.innerHTML = 0;
+    chick.src=pic;
+  }
+};
+
